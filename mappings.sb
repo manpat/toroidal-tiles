@@ -1,4 +1,0 @@
-/toroidal-tiles => target/html/toroidal-tiles.html
-/toroidal-tiles/debug.js => target/asmjs-unknown-emscripten/debug/toroidal-tiles.js
-/toroidal-tiles/release.js => target/asmjs-unknown-emscripten/release/toroidal-tiles.js
-
