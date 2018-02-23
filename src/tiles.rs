@@ -50,7 +50,7 @@ pub struct ItemizedTileMap<T> {
 	data: Vec<(Vec2i, T)>,
 	size: Vec2i,
 }
-// TODO: Chunked tile map
+// TODO: Chunked tile map?
 
 
 impl TileInfo {

@@ -1,6 +1,7 @@
 use web_common::*;
 use tiles::{FlatTileMap, TileMap, TileSet, TileInfo};
 
+pub const NUM_LAYERS: i32 = 6;
 pub const LAYER_FACTOR: i32 = 2;
 
 pub struct World {
@@ -15,7 +16,7 @@ impl World {
 	pub fn new(tile_set: TileSet) -> Self {
 		let mut layers = Vec::new();
 
-		for i in 0..6 {
+		for i in 0..NUM_LAYERS {
 			let world_size = Vec2i::splat(World::layer_size(i));
 
 			layers.push(FlatTileMap::new(world_size));

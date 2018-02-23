@@ -16,7 +16,6 @@ mod tiles;
 
 use world::*;
 use world_view::*;
-use tiles::*;
 
 #[macro_export]
 macro_rules! asset {
@@ -81,7 +80,8 @@ fn main() {
 		}
 
 		let tile_set = {
-			use tile_flags::*;
+			use tiles::{TileSet, TileInfo};
+			use tiles::tile_flags::*;
 
 			let texel_size = Vec2i::splat(16);
 			TileSet::new(&[
@@ -229,6 +229,18 @@ fn main() {
 					_ => {}
 				}
 			}
+
+			let bg_colors: [Color; world::NUM_LAYERS as usize] = [
+				Color::hsv(0.0, 0.6, 0.1),
+				Color::hsv(10.0, 0.5, 0.1),
+				Color::hsv(20.0, 0.3, 0.1),
+				Color::grey(0.1),
+				Color::hsv(90.0, 0.3, 0.1),
+				Color::hsv(130.0, 0.5, 0.1),
+			];
+
+			webgl.set_background(bg_colors[world.player_layer as usize]);
+			webgl.clear();
 
 			events.clear();
 
